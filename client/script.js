@@ -22,9 +22,10 @@ function typeText(element, text) {
       element.innerHTML += text.charAt(index);
       index++;
     } else {
+      chatContainer.scrollTop = chatContainer.scrollHeight;
       clearInterval(interval);
     }
-  }, 20)
+  }, 10)
 }
 
 function generateUniqueId() {
@@ -57,9 +58,10 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   const data = new FormData(form);
+  const value = data.get("prompt").trim();
 
   // user's chatstripe
-  chatContainer.innerHTML += chatStripe(false, data.get("prompt"));
+  chatContainer.innerHTML += chatStripe(false, value);
 
   form.reset();
 

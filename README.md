@@ -1,5 +1,5 @@
 # codex-gpt3
-An AI tool made using GPT-3.
+An AI :robot: tool made using GPT-3. This was made by following this [YouTube tutorial](https://youtu.be/2FeymQoKvrk), and then changed and expanded upon by myself.
 
 ## Instructions:
 ### Setup

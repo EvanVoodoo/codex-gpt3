@@ -141,11 +141,27 @@ textarea {
   outline: none;
 }
 
-button {
+form button {
   outline: 0;
   border: 0;
   cursor: pointer;
   background: transparent;
+}
+
+#clear-chat {
+  position: sticky;
+  bottom: 0%;
+  left: 0;
+  width: 100px;
+  font-size: large;
+  color: #fff;
+  background-color: #40414F;
+  transition: 0.1s;
+}
+
+#clear-chat:hover {
+  background-color: #50515F;
+  transition: 0.2s;
 }
 
 form img {

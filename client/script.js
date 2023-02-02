@@ -110,6 +110,11 @@ const handleSubmit = async (e) => {
   }
 }
 
+var clearButton = document.getElementById("clear-chat");
+clearButton.onclick = () => {
+  chatContainer.innerHTML = "";
+}
+
 form.addEventListener("submit", handleSubmit);
 form.addEventListener("keyup", (e) => {
   if (e.keyCode === 13) {

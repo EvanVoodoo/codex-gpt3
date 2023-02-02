@@ -116,8 +116,9 @@ clearButton.onclick = () => {
 }
 
 form.addEventListener("submit", handleSubmit);
-form.addEventListener("keyup", (e) => {
+// Allows pressing 'Enter' to submit the prompt
+/* form.addEventListener("keyup", (e) => {
   if (e.keyCode === 13) {
     handleSubmit(e);
   }
-})
+}) */

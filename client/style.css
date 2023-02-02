@@ -139,6 +139,7 @@ textarea {
   border-radius: 5px;
   border: none;
   outline: none;
+  resize: none;
 }
 
 form button {

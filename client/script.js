@@ -91,11 +91,17 @@ const handleSubmit = async (e) => {
 
   if (response.ok) {
     const data = await response.json();
-    const parsedData = data.bot.trim();
+    if (value.includes("IMG")) {
+      const parsedUrl = data.bot;
 
-    console.log(data.tokens)
+      messageDiv.innerHTML = `<img src="${parsedUrl}"/>`
+    } else {
+      const parsedData = data.bot.trim();
 
-    typeText(messageDiv, parsedData);
+      console.log(data.tokens)
+
+      typeText(messageDiv, parsedData);
+    }
   } else {
     const err = await response.text();
 

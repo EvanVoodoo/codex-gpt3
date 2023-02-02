@@ -112,6 +112,10 @@ body {
   display: none;
 }
 
+.message img {
+  height: 300px;
+}
+
 form {
   width: 100%;
   max-width: 1280px;

@@ -25,20 +25,33 @@ app.post("/", async (req, res) => {
     try {
         const prompt = req.body.prompt;
 
-        const response = await openai.createCompletion({
-            model: "text-davinci-003",
-            prompt: `${prompt}`,
-            temperature: 0,
-            max_tokens: 2048,
-            top_p: 1,
-            frequency_penalty: 0.5,
-            presence_penalty: 0,
-        });
+        if (prompt.includes("IMG")) {
+            const response = await openai.createImage({
+                prompt: `${prompt}`,
+                n: 1,
+                size: "512x512",
+            })
+            res.status(200).send({
+                bot: response.data.data[0].url,
+            })
+        }
+        else {
+            const response = await openai.createCompletion({
+                model: "text-davinci-003",
+                prompt: `${prompt}`,
+                temperature: 0,
+                max_tokens: 2048,
+                top_p: 1,
+                frequency_penalty: 0.5,
+                presence_penalty: 0,
+            });
 
-        res.status(200).send({
-            bot: response.data.choices[0].text,
-            tokens: response.data.usage
-        })
+
+            res.status(200).send({
+                bot: response.data.choices[0].text,
+                tokens: response.data.usage
+            })
+        }
     } catch (error) {
         console.log(error);
         res.status(500).send({ error });

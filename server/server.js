@@ -26,6 +26,7 @@ app.post("/", async (req, res) => {
         const prompt = req.body.prompt;
 
         if (prompt.includes("IMG")) {
+            prompt.replace("IMG", "");
             const response = await openai.createImage({
                 prompt: `${prompt}`,
                 n: 1,
